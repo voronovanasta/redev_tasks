@@ -10,11 +10,16 @@ export function ItemList ({data, searchWord}) {
       }
 
     const filteredData = useMemo(()=> {
-        return data.filter(el=> el.text.includes(searchWord.toLowerCase()));
+        return data.filter(el=> el.text.toLowerCase().includes(searchWord.toLowerCase()));
     }, [data, searchWord])
 
-        return <ul style={style}>{searchWord !== '' ? filteredData.length > 0 ? filteredData.map(el => <li key={el.id}>{el.text}</li>) : <li>Ничего не найдено</li> : data.map(el => <li key={el.id}>{el.text}</li>)}
-    </ul>
+        return (
+        <ul style={style}>
+            {searchWord !== '' ? 
+            filteredData.length > 0 ? 
+            filteredData.map(el => <li key={el.id}>{el.text}</li>) : <li>Ничего не найдено</li> : 
+            data.map(el => <li key={el.id}>{el.text}</li>)}
+    </ul>)
    
     
 }
