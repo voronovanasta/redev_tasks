@@ -1,22 +1,37 @@
-import { useRef } from 'react';
+import { useState } from 'react';
+import { SearchInput} from './components/SearchInput';
+import { ItemList } from './components/ItemList';
+import { CounterButton } from './components/CounterButton';
+import { useCallback } from 'react';
 import './App.css'
-import { List} from './components/List'
 
+const data = [];
 
-const data = [{task:'Task 1', id: 1}, {task:'Task 2', id: 2}, {task:'Task 3', id: 3}]
+for (let i = 1; i <= 1001; i++) {
+  data.push({
+      id: i,
+      text: "text" + i
+  });
+}
+
 function App() {
-  const style = {width: '300px', display: "flex", flexDirection: "column", justifyContent: 'space-between'};
+  const [searchWord, setSearchWord] = useState('');
+  const [counter, setCounter] = useState(0);
 
-  const inputRef = useRef(null);
+  const searchHandler = useCallback((word) => {
+    setSearchWord(word)
+  }, [])
 
-  function clickHandler () {
-    inputRef.current.focus();
-  }
+  const counterHandler = useCallback(() => {
+    setCounter(c => c + 1)
+  }, []) 
+
+  console.log(counter)
   return (
-    <div style = {style}>
-      <List data={data}/>
-      <input ref ={inputRef} placeholder='Type here...'></input>
-      <button onClick={clickHandler}>Focus</button>
+    <div className = "parent">
+      <CounterButton clickHandler={counterHandler}/>
+      <SearchInput  searchHandler={searchHandler}/> 
+      <ItemList data={data} searchWord={searchWord}/>
     </div>
   )
 }
