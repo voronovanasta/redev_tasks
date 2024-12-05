@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 
-export function CounterButton ({clickHandler}) {
-    return   <button onClick={clickHandler}>Counter</button>
-}
+import { memo } from "react"
+
+export const CounterButton = memo(function CounterButton({clickHandler}) {
+return <button onClick={clickHandler}>Counter</button>
+})
