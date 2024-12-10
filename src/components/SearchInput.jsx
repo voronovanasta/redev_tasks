@@ -2,7 +2,7 @@
 
 import { memo } from "react"
 
-export const CounterButton = memo(function CounterButton ({searchHandler}) {
+export const SearchInput = memo(function SearchInput ({searchHandler}) {
 
     function inputHandler (event) {
         searchHandler(event.target.value)

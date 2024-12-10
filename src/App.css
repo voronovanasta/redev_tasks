@@ -5,6 +5,18 @@
   text-align: center;
 }
 
+body[data-theme='dark'] {
+  background-color: rgb(36, 24, 46);
+  color: beige;
+  border-color: bisque;
+}
+
+body[data-theme='light'] {
+  background-color: beige;
+  border-color:blueviolet;
+}
+
+
 .parent {
   width: 300px; 
   display: flex;
