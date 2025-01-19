@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom';
 import { MainComponent } from './components/MainComponent';
 import { ProjectStructurePage } from './pages/ProjectStructurePage';
 import { VDOMPage } from './pages/VDOMPage';
-import { ComponentPage } from './pages/ComponentPAge';
 import { PropsPage } from './pages/PropsPage';
 import { StatePage } from './pages/StatePage';
 import { LifecyclePage } from './pages/LifecyclePage';
@@ -21,6 +20,7 @@ import './App.css';
 import { HOCPage } from './pages/HOCPage';
 import { FormPage } from './pages/FormPage';
 import { StoragePage } from './pages/StoragePage';
+import { ComponentPage } from './pages/ComponentPage';
 
 function App() {
   return (
